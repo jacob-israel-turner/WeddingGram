@@ -9,15 +9,13 @@ import {
 
 import Camera from 'react-native-camera'
 
-console.log(Camera)
-console.log(Camera.constants)
-
 export default class Video extends Component {
   takePicture(pic) {
-    console.log('PIC', pic)
+    this.camera.capture()
+      .then(data => console.log(data))
+      .catch(e => console.warn(e))
   }
   render() {
-    console.log('RENDERING VIDEO')
     return (
       <View style={styles.container}>
         <Camera
