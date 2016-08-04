@@ -14,42 +14,12 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import {Home} from './src/android/components'
+
 class WeddingGram extends Component {
-  constructor() {
-    super();
-    this.state = {name: null};
-  }
-  handleNameChange(e) {
-    this.setState({name: e.nativeEvent.text});
-  }
   render() {
     return (
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.jv}>
-            J&V
-          </Text>
-          <Text style={styles.message}>
-            Leave a message for the newlyweds!
-          </Text>
-        </View>
-        <View style={styles.nameInputContainer}>
-          <TextInput
-            style={styles.nameInput}
-            placeholder={'Enter your name(s)!'}
-            autoCapitalize={'words'}
-            onChange={this.handleNameChange.bind(this)}
-            value={this.state.name} />
-        </View>
-        <View style={styles.touchableContainer}>
-          <TouchableOpacity style={styles.touchable}>
-            <Text style={styles.touchableText}>Video</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.touchable}>
-            <Text style={styles.touchableText}>Picture</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      <Home />
     );
   }
 }
