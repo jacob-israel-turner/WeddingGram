@@ -4,11 +4,67 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "lint": "node_modules/.bin/eslint ./**/*.js",
     "android-emulator": "emulator -avd samsung_galaxy_tab",
     "android": "react-native run-android"
   },
   "dependencies": {
     "react": "15.2.1",
     "react-native": "0.30.0"
+  },
+  "dev-dependencies": {
+    "eslint": "^3.2.2",
+    "eslint-plugin-react": "^6.0.0",
+    "eslint-plugin-react-native": "^1.2.1"
+  },
+  "eslintConfig": {
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "plugins": [
+      "react",
+      "react-native"
+    ],
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "rules": {
+      "react-native/no-unused-styles": 2,
+      "react-native/split-platform-components": 2,
+      "react-native/no-inline-styles": 2,
+      "react/jsx-uses-vars": 2,
+      "react/jsx-uses-react": 2,
+      "react/react-in-jsx-scope": 2,
+      "indent": [
+          "error",
+          2
+      ],
+      "linebreak-style": [
+          "error",
+          "unix"
+      ],
+      "quotes": [
+          "error",
+          "single",
+          {"allowTemplateLiterals": true}
+      ],
+      "semi": [
+          "error",
+          "never"
+      ],
+      "prefer-template": [
+        "error"
+      ],
+      "comma-dangle": [
+        "error",
+        "only-multiline"
+      ],
+      "no-console": 0
+    }
   }
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
   Alert,
   StyleSheet,
@@ -6,18 +6,19 @@ import {
   TextInput,
   View,
   TouchableOpacity
-} from 'react-native';
+} from 'react-native'
 
 export default class Home extends Component {
   constructor() {
-    super();
-    this.state = {name: null};
+    super()
+    this.state = {name: null}
   }
   handleNameChange(e) {
-    this.setState({name: e.nativeEvent.text});
+    this.setState({name: e.nativeEvent.text})
   }
   handlePress(type) {
-    if(!this.state.name) return Alert.alert('Wait!', 'Please enter your name!');
+    if(!this.state.name) return Alert.alert('Wait!', 'Please enter your name!')
+    console.log(type)
   }
   render() {
     return (
@@ -47,7 +48,7 @@ export default class Home extends Component {
           </TouchableOpacity>
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -76,11 +77,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
   touchableContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -96,4 +92,4 @@ const styles = StyleSheet.create({
   touchableText: {
     fontSize: 48,
   }
-});
+})
