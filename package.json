@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "react": "15.2.1",
-    "react-native": "0.30.0"
+    "react-native": "0.30.0",
+    "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git"
   },
   "dev-dependencies": {
     "eslint": "^3.2.2",
@@ -19,8 +20,8 @@
   },
   "eslintConfig": {
     "env": {
-        "es6": true,
-        "node": true
+      "es6": true,
+      "node": true
     },
     "plugins": [
       "react",
@@ -41,21 +42,23 @@
       "react/jsx-uses-react": 2,
       "react/react-in-jsx-scope": 2,
       "indent": [
-          "error",
-          2
+        "error",
+        2
       ],
       "linebreak-style": [
-          "error",
-          "unix"
+        "error",
+        "unix"
       ],
       "quotes": [
-          "error",
-          "single",
-          {"allowTemplateLiterals": true}
+        "error",
+        "single",
+        {
+          "allowTemplateLiterals": true
+        }
       ],
       "semi": [
-          "error",
-          "never"
+        "error",
+        "never"
       ],
       "prefer-template": [
         "error"

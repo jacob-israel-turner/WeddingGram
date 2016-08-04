@@ -1,2 +1,3 @@
 import Home from './home'
-export {Home}
+import Video from './video'
+export { Home, Video }

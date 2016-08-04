@@ -18,7 +18,9 @@ export default class Home extends Component {
   }
   handlePress(type) {
     if(!this.state.name) return Alert.alert('Wait!', 'Please enter your name!')
-    console.log(type)
+    this.props.navigateTo(type === 'video' ? 1 : 0)
+    this.setState({name: null})
+    this.refs[0].blur()
   }
   render() {
     return (
@@ -33,6 +35,7 @@ export default class Home extends Component {
         </View>
         <View style={styles.nameInputContainer}>
           <TextInput
+            ref='0'
             style={styles.nameInput}
             placeholder={'Enter your name(s)!'}
             autoCapitalize={'words'}
