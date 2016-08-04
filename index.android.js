@@ -9,13 +9,19 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  TextInput,
   View,
   TouchableOpacity
 } from 'react-native';
 
-console.log(React.version);
-
 class WeddingGram extends Component {
+  constructor() {
+    super();
+    this.state = {name: null};
+  }
+  handleNameChange(e) {
+    this.setState({name: e.nativeEvent.text});
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -26,6 +32,14 @@ class WeddingGram extends Component {
           <Text style={styles.message}>
             Leave a message for the newlyweds!
           </Text>
+        </View>
+        <View style={styles.nameInputContainer}>
+          <TextInput
+            style={styles.nameInput}
+            placeholder={'Enter your name(s)!'}
+            autoCapitalize={'words'}
+            onChange={this.handleNameChange.bind(this)}
+            value={this.state.name} />
         </View>
         <View style={styles.touchableContainer}>
           <TouchableOpacity style={styles.touchable}>
@@ -46,6 +60,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'stretch',
     backgroundColor: '#F5FCFF',
+  },
+  nameInputContainer: {
+    alignItems: 'center'
+  },
+  nameInput: {
+    width: 750,
+    textAlign: 'center',
+    fontSize: 24
   },
   jv: {
     fontSize: 72,
