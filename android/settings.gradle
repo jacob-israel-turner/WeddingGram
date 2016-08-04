@@ -1,0 +1,3 @@
+rootProject.name = 'WeddingGram'
+
+include ':app'
