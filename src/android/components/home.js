@@ -18,7 +18,7 @@ export default class Home extends Component {
   }
   handlePress(type) {
     if(!this.state.name) return Alert.alert('Wait!', 'Please enter your name!')
-    this.props.navigateTo(type === 'video' ? 1 : 0)
+    this.props.navigateTo(1)
     this.setState({name: null})
     this.refs[0].blur()
   }
@@ -43,11 +43,8 @@ export default class Home extends Component {
             value={this.state.name} />
         </View>
         <View style={styles.touchableContainer}>
-          <TouchableOpacity onPress={this.handlePress.bind(this, 'video')} style={styles.touchable}>
-            <Text style={styles.touchableText}>Video</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={this.handlePress.bind(this, 'picture')} style={styles.touchable}>
-            <Text style={styles.touchableText}>Picture</Text>
+          <TouchableOpacity onPress={this.handlePress.bind(this)} style={styles.touchable}>
+            <Text style={styles.touchableText}>Go!</Text>
           </TouchableOpacity>
         </View>
       </View>
