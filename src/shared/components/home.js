@@ -18,7 +18,7 @@ export default class Home extends Component {
   }
   handlePress(type) {
     if(!this.state.name) return Alert.alert('Wait!', 'Please enter your name!')
-    this.props.navigateTo(1)
+    this.props.navigateTo(1, {name: this.state.name})
     this.setState({name: null}, () => {
       this.refs[0].setNativeProps({text: ''})
       this.refs[0].blur()

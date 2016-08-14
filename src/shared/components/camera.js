@@ -26,7 +26,7 @@ export default class Video extends Component {
   async takePicture() {
     try {
       const pic = await this.camera.capture()
-      this.props.navigateTo(2, pic)
+      this.props.navigateTo(2, {name: this.props.name, ...pic})
     } catch (e) {
       console.warn(e)
     }

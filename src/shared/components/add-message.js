@@ -20,7 +20,7 @@ export default class AddMessage extends Component {
   }
   async handlePress(type) {
     this.setState({saving: true})
-    await handlePictureTaken({message: this.state.message, path: this.props.path})
+    await handlePictureTaken({message: this.state.message, path: this.props.path, name: this.props.name})
     this.props.navigateHome()
   }
   render() {
