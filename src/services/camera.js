@@ -1,3 +1,6 @@
 export const handlePictureTaken = pic => {
-  console.log(pic);
+  return new Promise((resolve, reject) => {
+    console.log(pic);
+    resolve(Math.floor(Math.random() * 1000));
+  })
 }

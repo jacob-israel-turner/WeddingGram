@@ -1,53 +1,39 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react'
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
-  View
+  Navigator,
 } from 'react-native'
 
+import {routes} from './src/services/navigation'
+
 class WeddingGram extends Component {
+  constructor() {
+    super()
+    this.state = {
+      props: {}
+    }
+  }
+  addRouteToStack(navigator, routeIndex, props){
+    this.setState({props}, () => navigator.push(routes[routeIndex]))
+  }
+  goBackHome(navigator) {
+    navigator.popToTop()
+  }
+  renderScene(route, navigator) {
+    return <route.component
+        navigateTo={this.addRouteToStack.bind(this, navigator)}
+        navigateHome={this.goBackHome.bind(this, navigator)}
+        {...this.state.props}
+      />
+  }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <Navigator
+        initialRoute={routes[0]}
+        renderScene={this.renderScene.bind(this)}
+        />
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-})
 
 AppRegistry.registerComponent('WeddingGram', () => WeddingGram)

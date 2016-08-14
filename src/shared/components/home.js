@@ -19,8 +19,10 @@ export default class Home extends Component {
   handlePress(type) {
     if(!this.state.name) return Alert.alert('Wait!', 'Please enter your name!')
     this.props.navigateTo(1)
-    this.setState({name: null})
-    this.refs[0].blur()
+    this.setState({name: null}, () => {
+      this.refs[0].setNativeProps({text: ''})
+      this.refs[0].blur()
+    })
   }
   render() {
     return (
@@ -36,6 +38,7 @@ export default class Home extends Component {
         <View style={styles.nameInputContainer}>
           <TextInput
             ref='0'
+            keyboardType='default'
             style={styles.nameInput}
             placeholder={'Enter your name(s)!'}
             autoCapitalize={'words'}
@@ -60,12 +63,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   nameInputContainer: {
-    alignItems: 'center'
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginBottom: 180,
   },
   nameInput: {
     width: 750,
     textAlign: 'center',
-    fontSize: 24
+    fontSize: 24,
+    height: 24,
   },
   jv: {
     fontSize: 72,
